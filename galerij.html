@@ -5,10 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="sani.png">
     <title>SaniBot</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+	
+	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+	<link href="style.css" rel="stylesheet">
+	 
+	 <style>
+		#demo {
+		height:100%;
+		position:relative;
+		overflow:hidden;
+		}
 
-    <link href="style.css" rel="stylesheet">
+
+		.green{
+		background-color:#6fb936;
+		}
+		.thumb{
+		margin-bottom: 30px;
+		}
+
+		.page-top{
+		margin-top:85px;
+		}
+
+
+		img.zoom {
+		width: 100%;
+		height: 200px;
+		border-radius:5px;
+		object-fit:cover;
+		-webkit-transition: all .3s ease-in-out;
+		-moz-transition: all .3s ease-in-out;
+		-o-transition: all .3s ease-in-out;
+		-ms-transition: all .3s ease-in-out;
+		}
+
+
+		.transition {
+		-webkit-transform: scale(1.2); 
+		-moz-transform: scale(1.2);
+		-o-transform: scale(1.2);
+		transform: scale(1.2);
+		}
+		.modal-header {
+
+		border-bottom: none;
+		}
+		.modal-title {
+		color:#000;
+		}
+		.modal-footer{
+		display:none;  
+		}
+	 </style>
   </head>
 
   <body class="text-center">
@@ -25,44 +77,64 @@
 			  </nav>
 			</div>
 		</header>
-		
-		
-		<div class="row" id="gallery" data-toggle="modal" data-target="#exampleModal">
-			<div class="col-12 col-sm-6 col-lg-3">
-				<img class="d-block w-100" src="sani.png" data-target="#carouselExample" data-slide-to="1">
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<img class="d-block w-100" src="schets.png" data-target="#carouselExample" data-slide-to="2">
-			</div>
-		</div>
-		
-		
-			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-body">
-							<div id="carouselExample" class="carousel slide" data-ride="carousel">
-								<div class="carousel-inner">
-									<div class="carousel-item active">
-										<img class="d-block w-100" src="sani.png">
-									</div>
-									<div class="carousel-item">
-										<img class="d-block w-100" src="schets.png">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+		<div class="container-md">
+			<div class="row">
+				<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+					<a href="topdown.png" class="fancybox" rel="ligthbox">
+						<img src="topdown.png" class="zoom img-fluid "  alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+					<a href="rupsbanden.png" class="fancybox" rel="ligthbox">
+						<img src="rupsbanden.png" class="zoom img-fluid "  alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+					<a href="arm.png" class="fancybox" rel="ligthbox">
+						<img src="arm.png" class="zoom img-fluid "  alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+					<a href="claw.png" class="fancybox" rel="ligthbox">
+						<img src="claw.png" class="zoom img-fluid "  alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+					<a href="sani.png" class="fancybox" rel="ligthbox">
+						<img src="sani.png" class="zoom img-fluid "  alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+					<a href="schets.png" class="fancybox" rel="ligthbox">
+						<img src="schets.png" class="zoom img-fluid "  alt="">
+					</a>
 				</div>
 			</div>
-
-      
-    </div>
-
-
+		</div>
+	</div>
 	
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+	<script>
+		$(document).ready(function(){
+		  $(".fancybox").fancybox({
+				openEffect: "none",
+				closeEffect: "none"
+			});
+			
+			$(".zoom").hover(function(){
+				$(this).addClass('transition');
+			}, function(){
+				$(this).removeClass('transition');
+			});
+		});
+	</script>
+
+
   </body>
 </html>
