@@ -72,17 +72,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
 
 	<script type="text/javascript">
-		$.ajax({
-			url: 'https://api.mar.frl/' + '?callback=?',
-			type: "GET",
-			dataType: "jsonp",
-			contentType: "application/json",
-			success: function (data, status) {
-				var items = [];
-					$.each( data[0], function( key, val ) {
-					$("#"+key).text(val);
-					});
-			}
+		$(document).ready(function () {
+			setInterval(function () {
+				$.ajax({
+					url: 'https://api.mar.frl/' + '?callback=?',
+					type: "GET",
+					dataType: "jsonp",
+					contentType: "application/json",
+					success: function (data, status) {
+						var items = [];
+						$.each( data[0], function( key, val ) {
+							$("#"+key).text(val);
+						});
+					}
+				})
+			}, 250);
 		});
 	</script>
   </body>
