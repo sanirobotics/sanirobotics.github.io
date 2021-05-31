@@ -7,7 +7,6 @@
     <title>SaniBot</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="style.css" rel="stylesheet">
 	
   </head>
@@ -30,25 +29,32 @@
       <main role="main" class="inner cover">
 	  
 		<div class="row">
-			<div class="col-md-8">
-				<h1 class="cover-heading">SaniBot</h1>
+			<div class="col-md-12">
+				<h1 class="cover-heading">SaniBot's values's</h1>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-12">
 				<p class="lead">
-				In het afgelopen jaar is de mensheid wakker geschrokken door de pandemie. Hierdoor zijn we ons gaan realiseren dat er een hoop moet veranderen om de huidige pandemie te onderdrukken, maar ook om een volgende te voorkomen. Het is nog maar de vraag of we ooit nog terug kunnen gaan naar een maatschappij waarin de handen geschud kunnen worden, waar men geen afstand hoeft te houden, of waar desinfenctiemiddel niet op elke straathoek en bij elke ingang te vinden is. We hebben uit persoonlijke ervaring opgemerkt dat het constant desinfecteren van de handen grote ongemakken met zich meebrengt. Zo is er vaak maar 1 flesje desinfectiemiddel beschikbaar die vaak ook niet hands-free is. 
-				
-				Daarnaast kan het voorkomen dat het desinfectiemiddel niet op de gebruikelijke route ligt op kantoor. De SaniBot brengt desinfectiemiddel naar de mens toe op een interactieve manier.
 				</p>
-				
-			<p class="lead center">
-				Benieuwd hoe het er voor staat? Bekijk onze <a href="/voortgang.html"><b>voortgang</b></a>.
-			</p>
-			</div>
-			
-			<div class="col-md-4">
-				<img src="sani.png" alt="SaniBot" class="img-fluid" >
+				<div class="row justify-content-center">
+					<div class="col-auto">
+						<table id="table" class="table table-dark table-borderless">
+						<thead>
+							<tr>
+								<th data-field="Speed_example">Speed</th>
+								<th data-field="Weight_example">Weight</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td id="Speed_example"></td>
+								<td id="Weight_example"></td>
+							</tr>
+						</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 			
 			
@@ -60,21 +66,22 @@
     </div>
 
 	
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
-	
-	<script>
-		$(document).ready(function(){
-			$.ajax("http://api.mar.frl/?callback=?")
-				.done(function( json ) {
-					console.log( "JSON Data: " + json.users[ 3 ].name );
-				})
-				.fail(function( jqxhr, textStatus, error ) {
-					var err = textStatus + ", " + error;
-					console.log( "Request Failed: " + err );
-				})
-		})
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			setInterval(function () {
+				$.getJSON( "data.php", function( data ) {
+					var items = [];
+					$.each( data[0], function( key, val ) {
+					$("#"+key).text(val);
+					});
+				});
+			}, 250);
+		});
 	</script>
   </body>
 </html>
